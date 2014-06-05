@@ -28,7 +28,7 @@ def connect(user, host, password):
 def main():
   host = 'kali'
   user = 'root'
-  password = '8812P6xe'
+  password = ''
   child = connect(user, host, password)
   send_command(child, 'lsof')
 
