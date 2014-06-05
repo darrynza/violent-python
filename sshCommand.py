@@ -26,11 +26,11 @@ def connect(user, host, password):
   return child
 
 def main():
-  host = '192.168.1.200'
+  host = 'kali'
   user = 'root'
   password = '8812P6xe'
   child = connect(user, host, password)
-  send_command(child, 'ls -l /etc')
+  send_command(child, 'lsof')
 
 if __name__ == '__main__':
   main()
