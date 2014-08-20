@@ -10,14 +10,14 @@ def connect(user, host, password):
   connStr = 'ssh ' + user + '@' + host
   child = pexpect.spawn(connStr)
   ret = child.expect([pexpect.TIMEOUT, ssh_newkey, \
-      '[P|p]assword:'])
+                      '[P|p]assword:'])
   if ret == 0:
     print '[-] Error connecting'
     return
   if ret == 1:
     child.sendline('yes')
-    ret = child.expect([pexpect.TIMEOUT, \
-        '[P|p]assword:'])
+    ret = child.expect([pexpect.TIMEOUT,  \
+                        '[P|p]assword:'])
     if ret == 0:
       print '[-] Error Connecting'
       return
@@ -28,9 +28,9 @@ def connect(user, host, password):
 def main():
   host = 'kali'
   user = 'root'
-  password = ''
+  password = '8812P6xe'
   child = connect(user, host, password)
-  send_command(child, 'lsof')
+  send_command(child, 'cat /etc/passwd')
 
 if __name__ == '__main__':
   main()
