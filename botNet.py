@@ -33,8 +33,11 @@ def addClient(host, user, password):
     botNet.append(client)
 
 botNet = []
-addClient('kali1', 'root', '')
-addClient('kali2', 'root', '')
-addClient('kali3', 'root', '')
-botnetCommand('grep -i Protocol /etc/ssh/sshd_config')
+uid = 'root'
+pwd = '8812P6xe'
+
+addClient('kali1', uid, pwd)
+addClient('kali2', uid, pwd)
+addClient('kali3', uid, pwd)
+botnetCommand('down')
 # botnetCommand('apt-get update')
