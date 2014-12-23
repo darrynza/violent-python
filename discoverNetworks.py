@@ -1,3 +1,5 @@
+# This script must be executed from Win32/64 Python environment. 
+
 from _winreg import *
 
 def val2addr(val):
