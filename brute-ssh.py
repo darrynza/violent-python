@@ -13,5 +13,5 @@ def connect(host, user, password):
         print '[-] Error Connecting'
         exit(0)
 
-s = connect('kali', 'root', '8812P6xe')
+s = connect('kali', 'root', 'blah')
 send_command(s, 'cat /etc/shadow | grep root')
