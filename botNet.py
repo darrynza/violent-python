@@ -34,7 +34,7 @@ def addClient(host, user, password):
 
 botNet = []
 uid = 'root'
-pwd = '8812P6xe'
+pwd = ''
 
 addClient('kali1', uid, pwd)
 addClient('kali2', uid, pwd)
