@@ -5,7 +5,7 @@
 # sudo pip install GeoIP
 
 import GeoIP 
-gi = GeoIP.GeoIP('/opt/GeoIP/GeoLiteCity.dat', GeoIP.GEOIP_STANDARD)
+gi = GeoIP.GeoIP('GeoLiteCity.dat', GeoIP.GEOIP_STANDARD)
 def printRecord(tgt):
 	rec = gi.record_by_name(tgt)
 	city = rec['city']

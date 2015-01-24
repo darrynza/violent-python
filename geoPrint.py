@@ -3,7 +3,7 @@ import socket
 import GeoIP
 import optparse
 
-gi = GeoIP.GeoIP('/opt/GeoIP/GeoLiteCity.dat', GeoIP.GEOIP_STANDARD)
+gi = GeoIP.GeoIP('GeoLiteCity.dat', GeoIP.GEOIP_STANDARD)
 def retGeoStr(ip):
 	try:
 		rec = gi.record_by_name(ip)
@@ -23,13 +23,14 @@ def printPcap(pcap):
 		try:
 			eth = dpkt.ethernet.Ethernet(buf)
 			ip = eth.data
-			src = socket.inet_nota(ip.src)
+			src = socket.inet_ntoa(ip.src)
 			dst = socket.inet_ntoa(ip.dst)
 			print '[+] Src: ' + src + ' --> Dst: ' + dst
 			print '[+] Src: ' + regGeoStr(src) + ' -->Dst: ' \
 				+ retGeoStr(dst)
-		except:
-			pass
+		except Exception, e:
+                        # print e
+                        pass
 
 def main():
 	parser = optparse.OptionParser('usage%prog -p <pcap file>')
@@ -43,8 +44,7 @@ def main():
 	print pcapFile 	
 	f = open(pcapFile)
 	pcap = dpkt.pcap.Reader(f) 
-   print "%d\n" % (len(pcap))	
-	printPcap(pcap)
+       	printPcap(pcap)
 
 if __name__ == '__main__':
 	main()
