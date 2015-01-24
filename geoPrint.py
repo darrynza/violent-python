@@ -18,7 +18,6 @@ def retGeoStr(ip):
 		return 'Unregistered'
 
 def printPcap(pcap):
-	print "printPcap subroutine. Input is %s\n" % (pcap)
 	for (ts, buf) in pcap:
 		try:
 			eth = dpkt.ethernet.Ethernet(buf)
@@ -26,7 +25,7 @@ def printPcap(pcap):
 			src = socket.inet_ntoa(ip.src)
 			dst = socket.inet_ntoa(ip.dst)
 			print '[+] Src: ' + src + ' --> Dst: ' + dst
-			print '[+] Src: ' + regGeoStr(src) + ' -->Dst: ' \
+			print '[+] GeoSrc: ' + regGeoStr(src) + ' -->Dst: ' \
 				+ retGeoStr(dst)
 		except Exception, e:
                         # print e
