@@ -1,0 +1,2 @@
+import zipfile
+zFile = zipfile.ZipFile("all.zip")
