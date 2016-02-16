@@ -1,0 +1,4 @@
+python-bluez
+bluetooth
+python-obexftp
+
